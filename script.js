@@ -6,4 +6,16 @@ const getComputerChoice = () => {
   return choices[randomNum];
 };
 
-console.log(getComputerChoice());
+const playerSelection = "rock";
+
+function playRound(playerSelection, getComputerChoice) {
+  if (playerSelection == "rock" && getComputerChoice == "paper") {
+    return `You lose, paper beats rock`;
+  } else if (playerSelection == "rock" && getComputerChoice == "scissors") {
+    return `You win, rock beats scissors`;
+  } else {
+    return `its a tie!`;
+  }
+}
+
+console.log(playRound(playerSelection, getComputerChoice()));
