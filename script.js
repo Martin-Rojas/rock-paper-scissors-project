@@ -27,18 +27,18 @@ function playRound(playerSelection, getComputerChoice) {
 let playerWinnigNumber = 0;
 let computerWinnigNumber = 0;
 
-for (let games = 0; games < 5; games++) {
-  const playerSelection = prompt(`rock, paper, scissors go! : `);
-  let result = playRound(playerSelection, getComputerChoice());
+// for (let games = 0; games < 5; games++) {
+//   const playerSelection = prompt(`rock, paper, scissors go! : `);
+//   let result = playRound(playerSelection, getComputerChoice());
   
-  if (result === 1) {
-    playerWinnigNumber += 1;
-  } else if (result === 2) {
-    computerWinnigNumber += 1;
-  } else {
-    console.log(`tie`);
-  }
-}
+//   if (result === 1) {
+//     playerWinnigNumber += 1;
+//   } else if (result === 2) {
+//     computerWinnigNumber += 1;
+//   } else {
+//     console.log(`tie`);
+//   }
+// }
 
 if (playerWinnigNumber > computerWinnigNumber) {
   console.log(`You win!!`);
