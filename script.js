@@ -1,3 +1,7 @@
+const rockElement = document.querySelector("#rock");
+const paperElement = document.querySelector("#paper");
+const scissorsElement = document.querySelector("#scissors");
+
 const getComputerChoice = () => {
   const choices = ["rock", "paper", "scissors"];
 
@@ -30,7 +34,7 @@ let computerWinnigNumber = 0;
 // for (let games = 0; games < 5; games++) {
 //   const playerSelection = prompt(`rock, paper, scissors go! : `);
 //   let result = playRound(playerSelection, getComputerChoice());
-  
+
 //   if (result === 1) {
 //     playerWinnigNumber += 1;
 //   } else if (result === 2) {
@@ -39,6 +43,29 @@ let computerWinnigNumber = 0;
 //     console.log(`tie`);
 //   }
 // }
+
+rockElement.addEventListener("click", (event) => {
+  const playerSelection = event.target.alt;
+  console.log(playRound(playerSelection, getComputerChoice()));
+});
+
+paperElement.addEventListener("click", (event) => {
+  const playerSelection = event.target.alt;
+  console.log(playRound(playerSelection, getComputerChoice()));
+});
+
+scissorsElement.addEventListener("click", (event) => {
+  const playerSelection = event.target.alt;
+  console.log(playRound(playerSelection, getComputerChoice()));
+});
+
+
+
+
+
+
+
+
 
 if (playerWinnigNumber > computerWinnigNumber) {
   console.log(`You win!!`);
