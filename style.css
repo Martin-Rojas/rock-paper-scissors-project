@@ -4,23 +4,55 @@
   padding: 0;
 }
 
-body{
-    width: 100%;
-    height: 100vh;
-    background-color: black;
-    color: aliceblue;
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  color: aliceblue;
 }
 
-.container{
-    border: 2px solid red;
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+img {
+  width: 100%;
+  height: auto;
 }
 
-.container h1{
-    margin: 10px 0;
+.container {
+  border: 2px solid red;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container h1 {
+  margin: 10px 0;
+}
+
+.statistics {
+  margin-bottom: 10px;
+  letter-spacing: .7px;
+}
+
+.game-choises {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.game-choises button {
+  width: 20%;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+button:hover {
+  transform: scale(1.2);
+}
+
+#winner {
+  font-size: 3em;
+  margin: 20px;
 }
