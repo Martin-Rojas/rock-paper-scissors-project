@@ -5,6 +5,7 @@ const scoreBoardElement = document.querySelector("#score-board");
 const playerScoreUi = document.querySelector("#player-score");
 const computerScoreUi = document.querySelector("#computer-score");
 const winnerUi = document.querySelector("#winner");
+const btnNewGameElement = document.querySelector(".newGameBtn");
 
 let playerWinnigNumber = 0;
 let computerWinnigNumber = 0;
@@ -88,6 +89,11 @@ rockElement.addEventListener("click", (event) => {
     rockElement.disabled = true;
     paperElement.disabled = true;
     scissorsElement.disabled = true;
+
+    // create a new game btn
+    const btnNewGame = document.createElement("button");
+    btnNewGame.textContent = "New Game";
+    btnNewGameElement.appendChild(btnNewGame);
   }
 });
 
