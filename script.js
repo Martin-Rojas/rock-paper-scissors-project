@@ -63,11 +63,13 @@ const newGame = () => {
   computerScoreUi.textContent = `Computer Score: ${computerWinnigNumber}`;
 };
 
-const resetGame = () => {
+const resetGame = (btnNewGame) => {
   newGame();
-  rockElement.disabled = true;
-  paperElement.disabled = true;
-  scissorsElement.disabled = true;
+  rockElement.disabled = false;
+  paperElement.disabled = false;
+  scissorsElement.disabled = false;
+  btnNewGameElement.removeChild(btnNewGame);
+  winnerUi.textContent = ``;
 };
 
 newGame();
@@ -94,6 +96,10 @@ rockElement.addEventListener("click", (event) => {
     const btnNewGame = document.createElement("button");
     btnNewGame.textContent = "New Game";
     btnNewGameElement.appendChild(btnNewGame);
+
+    btnNewGame.addEventListener("click", () => {
+      resetGame(btnNewGame);
+    });
   }
 });
 
