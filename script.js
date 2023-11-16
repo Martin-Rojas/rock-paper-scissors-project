@@ -56,27 +56,48 @@ const getWinner = (playerWinnigNumber, computerWinnigNumber) => {
   }
 };
 
-scoreBoardElement.textContent = `Game Round: 0`;
-playerScoreUi.textContent = `Player Score: ${playerWinnigNumber}`;
-computerScoreUi.textContent = `Computer Score: ${computerWinnigNumber}`;
+const newGame = () => {
+  scoreBoardElement.textContent = `Game Round: 0`;
+  playerScoreUi.textContent = `Player Score: ${playerWinnigNumber}`;
+  computerScoreUi.textContent = `Computer Score: ${computerWinnigNumber}`;
+};
+
+const resetGame = () => {
+  newGame();
+  rockElement.disabled = true;
+  paperElement.disabled = true;
+  scissorsElement.disabled = true;
+};
+
+newGame();
 
 rockElement.addEventListener("click", (event) => {
   const playerSelection = event.target.alt;
   const computerSelection = getComputerChoice();
+  const result = playRound(playerSelection, computerSelection);
 
-  console.log("who won: " + playRound(playerSelection, computerSelection));
-  console.log(`mychoice ${playerSelection}  comp: ${computerSelection}`);
+  addScore(result);
+  gameRound += 1;
+  scoreBoardElement.textContent = `Game Round: ${gameRound}`;
+
+  if (gameRound >= 5) {
+    winnerUi.textContent = getWinner(playerWinnigNumber, computerWinnigNumber);
+    gameRound = 0;
+    playerWinnigNumber = 0;
+    computerWinnigNumber = 0;
+    rockElement.disabled = true;
+    paperElement.disabled = true;
+    scissorsElement.disabled = true;
+  }
+});
+
+paperElement.addEventListener("click", (event) => {
+  const playerSelection = event.target.alt;
+  const computerSelection = getComputerChoice();
 
   const result = playRound(playerSelection, computerSelection);
 
-  //addScore(result);
-  if (result === 1) {
-    playerWinnigNumber += 1;
-    playerScoreUi.textContent = `Player Score: ${playerWinnigNumber}`;
-  } else if (result === 2) {
-    computerWinnigNumber += 1;
-    computerScoreUi.textContent = `Computer Score: ${computerWinnigNumber}`;
-  }
+  addScore(result);
 
   gameRound += 1;
 
@@ -88,16 +109,30 @@ rockElement.addEventListener("click", (event) => {
     playerWinnigNumber = 0;
     computerWinnigNumber = 0;
     rockElement.disabled = true;
+    paperElement.disabled = true;
+    scissorsElement.disabled = true;
   }
-});
-
-paperElement.addEventListener("click", (event) => {
-  const playerSelection = event.target.alt;
-  console.log(playRound(playerSelection, getComputerChoice()));
 });
 
 scissorsElement.addEventListener("click", (event) => {
   const playerSelection = event.target.alt;
-  console.log(playRound(playerSelection, getComputerChoice()));
-});
+  const computerSelection = getComputerChoice();
 
+  const result = playRound(playerSelection, computerSelection);
+
+  addScore(result);
+
+  gameRound += 1;
+
+  scoreBoardElement.textContent = `Game Round: ${gameRound}`;
+
+  if (gameRound >= 5) {
+    winnerUi.textContent = getWinner(playerWinnigNumber, computerWinnigNumber);
+    gameRound = 0;
+    playerWinnigNumber = 0;
+    computerWinnigNumber = 0;
+    rockElement.disabled = true;
+    paperElement.disabled = true;
+    scissorsElement.disabled = true;
+  }
+});
