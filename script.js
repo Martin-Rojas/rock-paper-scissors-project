@@ -106,13 +106,10 @@ rockElement.addEventListener("click", (event) => {
 paperElement.addEventListener("click", (event) => {
   const playerSelection = event.target.alt;
   const computerSelection = getComputerChoice();
-
   const result = playRound(playerSelection, computerSelection);
 
   addScore(result);
-
   gameRound += 1;
-
   scoreBoardElement.textContent = `Game Round: ${gameRound}`;
 
   if (gameRound >= 5) {
@@ -123,19 +120,25 @@ paperElement.addEventListener("click", (event) => {
     rockElement.disabled = true;
     paperElement.disabled = true;
     scissorsElement.disabled = true;
+
+    // create a new game btn
+    const btnNewGame = document.createElement("button");
+    btnNewGame.textContent = "New Game";
+    btnNewGameElement.appendChild(btnNewGame);
+
+    btnNewGame.addEventListener("click", () => {
+      resetGame(btnNewGame);
+    });
   }
 });
 
 scissorsElement.addEventListener("click", (event) => {
   const playerSelection = event.target.alt;
   const computerSelection = getComputerChoice();
-
   const result = playRound(playerSelection, computerSelection);
 
   addScore(result);
-
   gameRound += 1;
-
   scoreBoardElement.textContent = `Game Round: ${gameRound}`;
 
   if (gameRound >= 5) {
@@ -146,5 +149,14 @@ scissorsElement.addEventListener("click", (event) => {
     rockElement.disabled = true;
     paperElement.disabled = true;
     scissorsElement.disabled = true;
+
+    // create a new game btn
+    const btnNewGame = document.createElement("button");
+    btnNewGame.textContent = "New Game";
+    btnNewGameElement.appendChild(btnNewGame);
+
+    btnNewGame.addEventListener("click", () => {
+      resetGame(btnNewGame);
+    });
   }
 });

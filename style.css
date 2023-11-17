@@ -17,7 +17,6 @@ img {
 }
 
 .container {
-  border: 2px solid red;
   width: 90%;
   margin: 0 auto;
   display: flex;
@@ -26,17 +25,17 @@ img {
   flex-direction: column;
 }
 
-.newGameBtn button{
-    background-color: rgb(31, 29, 29);
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 10px;
-    border-style: none;
-    width: 135px;
-    height: 50px;
-    margin: 10px;
-    padding: 5px;
+.newGameBtn button {
+  background-color: rgb(31, 29, 29);
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  border-style: none;
+  width: 135px;
+  height: 50px;
+  margin: 10px;
+  padding: 5px;
 }
 
 .container h1 {
@@ -45,7 +44,7 @@ img {
 
 .statistics {
   margin-bottom: 10px;
-  letter-spacing: .7px;
+  letter-spacing: 0.7px;
 }
 
 .game-choises {
