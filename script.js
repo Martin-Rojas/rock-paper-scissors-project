@@ -6,6 +6,7 @@ const playerScoreUi = document.querySelector("#player-score");
 const computerScoreUi = document.querySelector("#computer-score");
 const winnerUi = document.querySelector("#winner");
 const btnNewGameElement = document.querySelector(".newGameBtn");
+const btnNewGame = document.createElement("button");
 
 let playerWinnigNumber = 0;
 let computerWinnigNumber = 0;
@@ -72,31 +73,36 @@ const resetGame = (btnNewGame) => {
   winnerUi.textContent = ``;
 };
 
+/*disable btns when it reaches 5 games played
+  and reset all points scored by players*/
+const endGame = () => {
+  winnerUi.textContent = getWinner(playerWinnigNumber, computerWinnigNumber);
+  gameRound = 0;
+  playerWinnigNumber = 0;
+  computerWinnigNumber = 0;
+  rockElement.disabled = true;
+  paperElement.disabled = true;
+  scissorsElement.disabled = true;
+};
+
 newGame();
 
 rockElement.addEventListener("click", (event) => {
   const playerSelection = event.target.alt;
   const computerSelection = getComputerChoice();
   const result = playRound(playerSelection, computerSelection);
+  // create a new game btn
+  // const btnNewGame = document.createElement("button");
 
   addScore(result);
   gameRound += 1;
   scoreBoardElement.textContent = `Game Round: ${gameRound}`;
 
   if (gameRound >= 5) {
-    winnerUi.textContent = getWinner(playerWinnigNumber, computerWinnigNumber);
-    gameRound = 0;
-    playerWinnigNumber = 0;
-    computerWinnigNumber = 0;
-    rockElement.disabled = true;
-    paperElement.disabled = true;
-    scissorsElement.disabled = true;
+    endGame();
 
-    // create a new game btn
-    const btnNewGame = document.createElement("button");
     btnNewGame.textContent = "New Game";
     btnNewGameElement.appendChild(btnNewGame);
-
     btnNewGame.addEventListener("click", () => {
       resetGame(btnNewGame);
     });
@@ -113,19 +119,10 @@ paperElement.addEventListener("click", (event) => {
   scoreBoardElement.textContent = `Game Round: ${gameRound}`;
 
   if (gameRound >= 5) {
-    winnerUi.textContent = getWinner(playerWinnigNumber, computerWinnigNumber);
-    gameRound = 0;
-    playerWinnigNumber = 0;
-    computerWinnigNumber = 0;
-    rockElement.disabled = true;
-    paperElement.disabled = true;
-    scissorsElement.disabled = true;
+    endGame();
 
-    // create a new game btn
-    const btnNewGame = document.createElement("button");
     btnNewGame.textContent = "New Game";
     btnNewGameElement.appendChild(btnNewGame);
-
     btnNewGame.addEventListener("click", () => {
       resetGame(btnNewGame);
     });
@@ -142,19 +139,10 @@ scissorsElement.addEventListener("click", (event) => {
   scoreBoardElement.textContent = `Game Round: ${gameRound}`;
 
   if (gameRound >= 5) {
-    winnerUi.textContent = getWinner(playerWinnigNumber, computerWinnigNumber);
-    gameRound = 0;
-    playerWinnigNumber = 0;
-    computerWinnigNumber = 0;
-    rockElement.disabled = true;
-    paperElement.disabled = true;
-    scissorsElement.disabled = true;
+    endGame();
 
-    // create a new game btn
-    const btnNewGame = document.createElement("button");
     btnNewGame.textContent = "New Game";
     btnNewGameElement.appendChild(btnNewGame);
-
     btnNewGame.addEventListener("click", () => {
       resetGame(btnNewGame);
     });
